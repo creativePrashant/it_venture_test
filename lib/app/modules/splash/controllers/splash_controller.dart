@@ -2,6 +2,7 @@ import 'dart:async';
 
 import 'package:get/get.dart';
 import 'package:it_venture_test/app/modules/home/views/home_view.dart';
+import 'package:it_venture_test/utils/memory_management.dart';
 
 import '../../../../utils/page_transition.dart';
 
@@ -11,7 +12,7 @@ class SplashController extends GetxController {
 
   @override
   void onInit() {
-    print("we are at init");
+    MemoryManagement.init();
     startTime();
     super.onInit();
   }
@@ -24,7 +25,6 @@ class SplashController extends GetxController {
   @override
   void onClose() {}
   startTime() async {
-    print("hwer");
     return Timer(duration.value, navigateToOtherScreen);
   }
 

@@ -19,6 +19,7 @@ class SharedPrefsKeys {
   static const String USER_SOCIAL_STATUS = "user_social_status";
   static const String NAME = "NAME";
   static const String USER_EMAIL = "user_email";
+  static const String OFFLINE_NEWS = "offline_news";
 
   //app theme
   static const String LANGUAGE_CODE = "language_code";

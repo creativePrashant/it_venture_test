@@ -122,6 +122,14 @@ class MemoryManagement {
     return prefs!.getString(SharedPrefsKeys.USER_SOCIAL_STATUS)!;
   }
 
+  static void setOffLineNews({required String value}) {
+    prefs!.setString(SharedPrefsKeys.OFFLINE_NEWS, value);
+  }
+
+  static String getOffLineNews() {
+    return prefs!.getString(SharedPrefsKeys.OFFLINE_NEWS)!;
+  }
+
   static void setUserEmail(String value) {
     prefs!.setString(SharedPrefsKeys.USER_EMAIL, value);
   }
