@@ -2,10 +2,11 @@ import 'dart:async';
 import 'dart:convert';
 import 'dart:io';
 import 'package:dio/dio.dart';
-import 'package:diadem/utils/memory_management.dart';
-import 'package:diadem/models/error/api_error.dart';
-import 'package:diadem/utils/messges.dart';
+
 import 'package:flutter/material.dart';
+import 'package:it_venture_test/models/error.dart';
+import 'package:it_venture_test/utils/memory_management.dart';
+import 'package:it_venture_test/utils/messages.dart';
 
 enum MethodType { POST, GET, PUT, DELETE }
 

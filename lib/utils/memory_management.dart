@@ -1,6 +1,6 @@
 import 'dart:ui';
+import 'package:it_venture_test/utils/shared_peferences_keys.dart';
 import 'package:shared_preferences/shared_preferences.dart';
-import 'shared_peferences_keys.dart';
 
 class MemoryManagement {
   static SharedPreferences? prefs;
