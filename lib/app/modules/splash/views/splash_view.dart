@@ -1,3 +1,4 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 
 import 'package:get/get.dart';
@@ -19,8 +20,8 @@ class SplashView extends GetView<SplashController> {
         height: mediaQuery.height,
         width: mediaQuery.width,
         child: Center(
-          child: Image.network(
-            AssetStrings.splashScreenImage,
+          child: CachedNetworkImage(
+            imageUrl: AssetStrings.splashScreenImage,
             color: AppColors.appBlackColor,
           ),
         ),
