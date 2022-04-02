@@ -8,12 +8,14 @@ import 'package:it_venture_test/services/api_services/article_services.dart';
 import 'package:it_venture_test/services/repositories/articile_repositories.dart';
 import 'package:it_venture_test/utils/memory_management.dart';
 
+import '../../../../utils/easy_loading.dart';
 import '../../../../utils/page_transition.dart';
 
 class HomeController extends GetxController {
   //TODO: Implement HomeController
   BuildContext? context;
   ArticleRepo? articleRepo;
+  CircularLoader _circularLoader = Get.put(CircularLoader());
   RxList<Articles> articles = <Articles>[].obs;
   var selectedArticle = Articles().obs;
   @override
@@ -21,7 +23,9 @@ class HomeController extends GetxController {
     super.onInit();
     articleRepo = Get.put(ArticleRepoImplementation());
     fetchCache();
-    getHeadLines();
+    Future.delayed(Duration(seconds: 1), () {
+      getHeadLines();
+    });
   }
 
   @override
@@ -33,7 +37,9 @@ class HomeController extends GetxController {
   void onClose() {}
 
   getHeadLines() async {
+    _circularLoader.showCircularLoader(context!);
     var response = await articleRepo!.getArticles();
+    _circularLoader.hideCircularLoader();
     if (response is ArtilcleListResponse) {
       MemoryManagement.setOnboarding(status: true);
       articles.value = response.articles!;
@@ -58,11 +64,11 @@ class HomeController extends GetxController {
     selectedArticle.value.index = index;
     selectedArticle.value = articles!;
     Get.to(
-      ArticleDetailView(),
-      // transition: AppPageTransition.leftToRightTransition,
-      // duration: Duration(
-      //   milliseconds: 500,
-      // ),
+      () => ArticleDetailView(),
+      transition: AppPageTransition.zoomPageTransition,
+      duration: Duration(
+        milliseconds: 400,
+      ),
     );
   }
 }

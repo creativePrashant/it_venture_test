@@ -112,61 +112,64 @@ class ArticleDetailView extends GetView<ArticleDetailController> {
                         fontSize: 16.sp,
                       ),
                     ),
-                    Container(
-                      height: 150.h,
-                      child: Obx(
-                        () => ListView.separated(
-                          padding: EdgeInsets.zero,
-                          shrinkWrap: true,
-                          scrollDirection: Axis.horizontal,
-                          itemBuilder: (context, index) {
-                            var similarArticle =
-                                controller.similarArticles.value[index];
-                            return Card(
-                              child: Container(
-                                width: 200.w,
-                                height: 150.h,
-                                child: Column(
-                                  children: [
-                                    ClipRRect(
-                                      borderRadius: BorderRadius.only(
-                                        topLeft: Radius.circular(10.r),
-                                        topRight: Radius.circular(10.r),
-                                      ),
-                                      child: CachedNetworkImage(
-                                        imageUrl: similarArticle.urlToImage!,
-                                        height: 100.h,
-                                        fit: BoxFit.fill,
-                                      ),
-                                    ),
-                                    Text(
-                                      similarArticle.title!,
-                                      style: TextStyle(
-                                        color: AppColors.appBlackColor,
-                                        fontWeight: FontWeight.w500,
-                                        fontSize: 13.sp,
-
-                                        // fontFamily: AssetStrings.poppinsRegular,
-                                      ),
-                                      maxLines: 2,
-                                    ),
-                                  ],
-                                ),
-                              ),
-                            );
-                          },
-                          separatorBuilder: (_, __) => SizedBox(
-                            width: 5.w,
-                          ),
-                          itemCount: controller.similarArticles.value.length,
-                        ),
-                      ),
-                    )
+                    similarNews()
                   ],
                 ),
               ),
             ],
           ),
         ));
+  }
+
+  Container similarNews() {
+    return Container(
+      height: 150.h,
+      child: Obx(
+        () => ListView.separated(
+          padding: EdgeInsets.zero,
+          shrinkWrap: true,
+          scrollDirection: Axis.horizontal,
+          itemBuilder: (context, index) {
+            var similarArticle = controller.similarArticles.value[index];
+            return Card(
+              child: Container(
+                width: 200.w,
+                height: 150.h,
+                child: Column(
+                  children: [
+                    ClipRRect(
+                      borderRadius: BorderRadius.only(
+                        topLeft: Radius.circular(10.r),
+                        topRight: Radius.circular(10.r),
+                      ),
+                      child: CachedNetworkImage(
+                        imageUrl: similarArticle.urlToImage!,
+                        height: 100.h,
+                        fit: BoxFit.fill,
+                      ),
+                    ),
+                    Text(
+                      similarArticle.title!,
+                      style: TextStyle(
+                        color: AppColors.appBlackColor,
+                        fontWeight: FontWeight.w500,
+                        fontSize: 13.sp,
+
+                        // fontFamily: AssetStrings.poppinsRegular,
+                      ),
+                      maxLines: 2,
+                    ),
+                  ],
+                ),
+              ),
+            );
+          },
+          separatorBuilder: (_, __) => SizedBox(
+            width: 5.w,
+          ),
+          itemCount: controller.similarArticles.value.length,
+        ),
+      ),
+    );
   }
 }

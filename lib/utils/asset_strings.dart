@@ -4,5 +4,5 @@ class AssetStrings {
   static const String robertoBold = 'Roboto-Regular';
 
   static const String splashScreenImage =
-      "https://static.vecteezy.com/system/resources/thumbnails/001/200/107/small/book.png";
+      "https://www.pngitem.com/pimgs/m/296-2966416_free-png-download-man-reading-newspaper-icon-png.png";
 }
