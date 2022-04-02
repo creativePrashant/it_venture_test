@@ -2,10 +2,11 @@ import 'dart:async';
 import 'dart:convert';
 import 'dart:io';
 import 'package:dio/dio.dart';
-import 'package:diadem/utils/memory_management.dart';
-import 'package:diadem/models/error/api_error.dart';
-import 'package:diadem/utils/messges.dart';
+
 import 'package:flutter/material.dart';
+import 'package:it_venture_test/models/error.dart';
+import 'package:it_venture_test/utils/memory_management.dart';
+import 'package:it_venture_test/utils/messages.dart';
 
 enum MethodType { POST, GET, PUT, DELETE }
 
@@ -90,20 +91,20 @@ class APIHandler {
       headers.addAll(defaultHeaders);
       headers.addAll(additionalHeaders);
 
-      try {
-        if (MemoryManagement.getAccessToken() != null) {
-          headers["Authorization"] =
-              "Bearer " + MemoryManagement.getAccessToken();
+      // try {
+      //   // if (MemoryManagement.getAccessToken() != null) {
+      //   //   headers["Authorization"] =
+      //   //       "Bearer " + MemoryManagement.getAccessToken();
 
-          debugPrint("token" + "Bearer " + MemoryManagement.getAccessToken());
-          //  }
-          // else {
-          //   headers["Authorization"] = 'Bearer ' +
-          //       "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1laWQiOiI4MjhjMjM3Yi0yMmY3LTRlZWYtODEyMy0wYjQ2YmQ5NjBkZTMiLCJlbWFpbCI6InRlc3RAZ21haWwuY29tIiwianRpIjoiNGJkZmYyMTUtNzliMS00M2JjLTg5YjQtMTBkODA3YmFkMDI5IiwidW5pcXVlX25hbWUiOiJ0ZXN0QGdtYWlsLmNvbSIsInJvbGUiOiJVc2VyIiwibmJmIjoxNjM2Mjc5ODUxLCJleHAiOjE2MzYzMjMwNTEsImlhdCI6MTYzNjI3OTg1MSwiaXNzIjoiRmxha2UiLCJhdWQiOiJGbGFrZUZpeEF1ZGllbmNlIn0.Ym8FxUkrD6XOcynTqZG8fYt4lxRm40PgHPYBGMwrOrU";
-        }
-      } catch (e) {
-        print(e);
-      }
+      //   //   debugPrint("token" + "Bearer " + MemoryManagement.getAccessToken());
+      //     //  }
+      //     // else {
+      //     //   headers["Authorization"] = 'Bearer ' +
+      //     //       "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1laWQiOiI4MjhjMjM3Yi0yMmY3LTRlZWYtODEyMy0wYjQ2YmQ5NjBkZTMiLCJlbWFpbCI6InRlc3RAZ21haWwuY29tIiwianRpIjoiNGJkZmYyMTUtNzliMS00M2JjLTg5YjQtMTBkODA3YmFkMDI5IiwidW5pcXVlX25hbWUiOiJ0ZXN0QGdtYWlsLmNvbSIsInJvbGUiOiJVc2VyIiwibmJmIjoxNjM2Mjc5ODUxLCJleHAiOjE2MzYzMjMwNTEsImlhdCI6MTYzNjI3OTg1MSwiaXNzIjoiRmxha2UiLCJhdWQiOiJGbGFrZUZpeEF1ZGllbmNlIn0.Ym8FxUkrD6XOcynTqZG8fYt4lxRm40PgHPYBGMwrOrU";
+      //   }
+      // } catch (e) {
+      //   print(e);
+      // }
 
       var response;
 
