@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_easyloading/flutter_easyloading.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import 'package:get/get.dart';
@@ -20,6 +21,7 @@ class MyApp extends StatelessWidget {
     return ScreenUtilInit(
       designSize: Size(360, 690),
       builder: () => GetMaterialApp(
+        builder: EasyLoading.init(),
         theme: theme(),
         debugShowCheckedModeBanner: false,
         navigatorKey: GlobalKeyConsts.navigatorKey,
