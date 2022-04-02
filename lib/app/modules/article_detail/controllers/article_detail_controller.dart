@@ -23,7 +23,7 @@ class ArticleDetailController extends GetxController {
 
   @override
   void onClose() {}
-
+//getting similar news
   getSimilarArticles() async {
     var response = await articleRepo!.getSimilarArticles();
     if (response is ArtilcleListResponse) {
